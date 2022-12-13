@@ -35,7 +35,9 @@ function App() {
     return setCountries(filterData);
   };
 
+
   const handleSearch = (search) => {
+    
     const searchValue = search.toLowerCase();
      const filterCountries = countries.filter((country) => {
         const contryName = country.name.common.toLowerCase();

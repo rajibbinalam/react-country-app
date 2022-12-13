@@ -4,18 +4,20 @@ const Search = (props) => {
 
     const [SearchText, setSearchText] = useState('')
 
-    const handleChange = (e) => {
-        setSearchText(e.target.value)
+    const handleChange = (query) => {
+      // console.log(query);
+      setSearchText(query);
+      props.onSearch(query);
     }
 
-    useEffect(() => {
-      props.onSearch(SearchText);
-    }, [handleChange])
-    
+    // useEffect(() => {
+
+    // }, [handleChange])
+
 
   return (
-    <div style={{textAling:"center"}}>
-        <input type='search' placeholder='Enter Something' onChange={handleChange} value={SearchText}/>
+    <div style={{textAlign:"center"}}>
+        <input type='search' placeholder='Enter Something' onChange={e => handleChange(e.target.value)} value={SearchText}/>
     </div>
   )
 }
